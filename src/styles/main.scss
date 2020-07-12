@@ -16,7 +16,7 @@ body {
   flex-flow: row wrap;
   justify-content: flex-start;
   align-items: flex-start;
-  width: ($cell-size+2*$gap)*7;
+  width: ($cell-size+$gap)*7;
   margin: auto;
 
   div {
@@ -28,12 +28,14 @@ body {
     background-color: #eee;
     font-size: 30px;
     border: 1px solid black;
-    margin: $gap;
+    margin-right: $gap;
+    margin-bottom: $gap;
     position: relative;
-
+    transition: background-color 0.5s,
+      transform 0.5s;
     &:hover {
       background-color: pink;
-      bottom: 20px;
+      transform: translate(0, -20px);
       cursor: pointer;
     }
   }
@@ -47,7 +49,7 @@ body {
 
 @each $day, $i in $days {
   .calendar-#{$day} > div:first-child {
-    margin-left: ($i) * ($cell-size + $gap +2);
+    margin-left: ($i) * ($cell-size + $gap);
   }
 }
 
